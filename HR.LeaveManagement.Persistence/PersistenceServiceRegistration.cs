@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 namespace HR.LeaveManagement.Persistence {
     public static class PersistenceServiceRegistration {
         public static IServiceCollection AddPersistanceServices(this IServiceCollection services, IConfiguration configuration) {
+
             services.AddDbContext<HRDatabaseContext>(options => {
                 options.UseSqlServer(configuration.GetConnectionString("HRDatabaseConnectionString"));
             });
@@ -20,6 +21,7 @@ namespace HR.LeaveManagement.Persistence {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
+            services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
 
             return services;
         }

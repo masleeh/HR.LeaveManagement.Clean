@@ -9,10 +9,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Persistence.DatabaseContext {
     public class HRDatabaseContext : DbContext {
-        public HRDatabaseContext(DbContextOptions<HRDatabaseContext> options) : base(options)
-        {
-            
-        }
+        public HRDatabaseContext(DbContextOptions<HRDatabaseContext> options) : base(options) {}
 
         public DbSet<LeaveType> LeaveType { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocation { get; set; }
